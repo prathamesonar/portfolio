@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prathamesh Sonar | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Define theme properties using CSS variables */
+        :root {
+            /* Light Theme Colors (Default) */
+            --bg-primary: #f0f2f5;
+            --bg-card: #ffffff;
+            --text-primary: #1c1e21;
+            --text-secondary: #606770;
+            --accent: #0d6efd;
+            --border: #ced4da;
+        }
+
+        html.dark {
+            /* Dark Theme Colors */
+            --bg-primary: #0a192f;
+            --bg-card: #112240;
+            --text-primary: #ccd6f6;
+            --text-secondary: #8892b0;
+            --accent: #64ffda;
+            --border: #233554;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-secondary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Helper classes */
+        .bg-primary { background-color: var(--bg-primary); }
+        .bg-card { background-color: var(--bg-card); }
+        .text-primary { color: var(--text-primary); }
+        .text-secondary { color: var(--text-secondary); }
+        .text-accent { color: var(--accent); }
+        .border-accent { border-color: var(--accent); }
+        .bg-accent { background-color: var(--accent); }
+        .border-main { border-color: var(--border); }
+        .mono { font-family: 'Roboto Mono', monospace; }
+        
+        .card {
+             background-color: var(--bg-card);
+             border-radius: 0.75rem;
+             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
+        }
+        .form-input:focus ~ .form-label,
+        .form-input:not(:placeholder-shown) ~ .form-label {
+            transform: translateY(-1.5rem) scale(0.875);
+            color: var(--accent);
+            background-color: var(--bg-card);
+            padding: 0 0.25rem;
+        }
+    </style>
+</head>
+<body class="text-base leading-relaxed antialiased">
+
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-primary/80 backdrop-blur-sm transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold mono text-accent">My Portfolio</a>
+            <div class="flex items-center space-x-4 md:space-x-6">
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link font-medium text-primary hover:text-accent">About</a>
+                    <a href="#skills" class="nav-link font-medium text-primary hover:text-accent">Skills</a>
+                    <a href="#projects" class="nav-link font-medium text-primary hover:text-accent">Projects</a>
+                    <a href="#experience" class="nav-link font-medium text-primary hover:text-accent">Experience</a>
+                    <a href="#contact" class="nav-link font-medium text-primary hover:text-accent">Contact</a>
+                </nav>
+                <a href="https://github.com/prathamesonar/resume/raw/ff4dec3ca38e962b7cf7ef3ccddd49b8defa91e8/internResume__Copy_.pdf" target="_blank" class="hidden md:inline-block border border-accent text-accent font-medium py-2 px-4 rounded-md hover:bg-accent/10 transition-colors">Resume</a>
+                
+                <button id="theme-toggle" type="button" class="text-secondary hover:text-accent transition-colors">
+                    <svg id="theme-toggle-dark-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
+                <button id="mobile-menu-button" class="md:hidden text-2xl text-accent">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 bg-primary">
+             <a href="#about" class="block py-2 text-center text-primary hover:text-accent">About</a>
+             <a href="#skills" class="block py-2 text-center text-primary hover:text-accent">Skills</a>
+             <a href="#projects" class="block py-2 text-center text-primary hover:text-accent">Projects</a>
+             <a href="#experience" class="block py-2 text-center text-primary hover:text-accent">Experience</a>
+             <a href="#contact" class="block py-2 text-center text-primary hover:text-accent">Contact</a>
+             <a href="https://github.com/prathamesonar/resume/raw/ff4dec3ca38e962b7cf7ef3ccddd49b8defa91e8/internResume__Copy_.pdf" target="_blank" class="block w-full mt-2 text-center border border-accent text-accent font-medium py-2 px-4 rounded-md hover:bg-accent/10 transition-colors">Resume</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6">
+
+        <section id="home" class="min-h-screen flex flex-col justify-center pt-24">
+            <p class="text-accent text-lg mono mb-4">Hi, my name is</p>
+            <h1 class="text-4xl md:text-7xl font-extrabold text-primary">Prathamesh Sonar.</h1>
+            <h2 class="text-3xl md:text-6xl font-extrabold text-secondary mt-2">I build things for the web.</h2>
+            <p class="max-w-2xl mt-6 text-secondary">
+                I'm a passionate Full-Stack Developer with a knack for creating dynamic and responsive web applications. I specialize in the MERN stack and enjoy bringing ideas to life with code.
+            </p>
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+                <a href="#contact" class="bg-accent text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition-opacity">Get In Touch</a>
+                <a href="https://github.com/prathamesonar" target="_blank" class="text-xl text-primary hover:text-accent transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/prathamesonar/" target="_blank" class="text-xl text-primary hover:text-accent transition-colors">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="py-24">
+            <h3 class="flex items-center text-3xl font-bold text-primary mb-12">
+                <span class="text-accent mono text-2xl mr-3">01.</span> About Me
+                <span class="flex-grow h-px border-main ml-6"></span>
+            </h3>
+            <div class="grid md:grid-cols-5 gap-12 items-start">
+                <div class="md:col-span-3 space-y-4 text-lg text-secondary">
+                    <p>Hello! I'm Prathamesh, a computer science student with a strong passion for software development. My journey into tech started with a curiosity for how things work, which quickly evolved into a love for building applications that solve real-world problems.</p>
+                    <p>I have hands-on experience with the full web development lifecycle, from designing responsive front-end interfaces with React to building robust back-end systems with Node.js and managing databases.</p>
+                </div>
+                <div class="md:col-span-2">
+                     <div class="relative w-full max-w-xs mx-auto">
+                        <div class="absolute inset-0 bg-accent rounded-lg transform rotate-3"></div>
+                        <img src="assest/imge.png" alt="Prathamesh Sonar" class="relative w-full rounded-lg shadow-lg">
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-24">
+            <h3 class="flex items-center text-3xl font-bold text-primary mb-12">
+                <span class="text-accent mono text-2xl mr-3">02.</span> My Skillset
+                <span class="flex-grow h-px border-main ml-6"></span>
+            </h3>
+            <div class="space-y-8">
+                <div>
+                    <h4 class="text-xl font-bold text-primary mb-4">Languages</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Python</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold text-primary mb-4">Core CS</h4>
+                    <div class="flex flex-wrap gap-3">
+                         <span class="skill-tag">Data Structures & Algorithms</span>
+                         <span class="skill-tag">OOPS</span>
+                         <span class="skill-tag">DBMS</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold text-primary mb-4">Full-Stack</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag">JWT</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold text-primary mb-4">Tools & Platforms</h4>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Vercel</span>
+                        <span class="skill-tag">Render</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-24">
+            <h3 class="flex items-center text-3xl font-bold text-primary mb-12">
+                <span class="text-accent mono text-2xl mr-3">03.</span> Things I've Built
+                <span class="flex-grow h-px border-main ml-6"></span>
+            </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card p-6 flex flex-col">
+                    <div class="flex justify-between items-center mb-4">
+                        <svg class="text-accent" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                        <div class="flex space-x-4 text-secondary text-xl">
+                            <a href="https://github.com/prathamesonar/blogify-Post-your-blogs" target="_blank" class="hover:text-accent"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                            <a href="https://blogify-post-your-blogs.onrender.com/" target="_blank" class="hover:text-accent"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold text-primary mb-2">Blogify: Full-Stack Blogging Platform</h4>
+                    <p class="text-secondary flex-grow">Architected a scalable MERN stack application with JWT authentication, a rich text editor, and a comprehensive admin dashboard for content moderation.</p>
+                    <div class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm mono text-secondary">
+                        <span>React</span><span>Node.js</span><span>MongoDB</span><span>TailwindCSS</span><span>JWT</span>
+                    </div>
+                </div>
+                <div class="card p-6 flex flex-col">
+                    <div class="flex justify-between items-center mb-4">
+                        <svg class="text-accent" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"></path><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"></path><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg>
+                        <div class="flex space-x-4 text-secondary text-xl">
+                            <a href="https://github.com/prathamesonar/Disease-Prediction-and-Recommendation-System" target="_blank" class="hover:text-accent"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold text-primary mb-2">Disease Prediction & Medical Recommendation</h4>
+                    <p class="text-secondary flex-grow">A symptom-based prediction platform using ML models with a chat-like frontend. Recommends medical facilities, diets, and workouts.</p>
+                    <div class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm mono text-secondary">
+                        <span>Python</span><span>Machine Learning</span><span>HTML/CSS</span><span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="card p-6 flex flex-col">
+                    <div class="flex justify-between items-center mb-4">
+                         <svg class="text-accent" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+                        <div class="flex space-x-4 text-secondary text-xl">
+                            <a href="https://github.com/prathamesonar/ai-document-insight-tool" target="_blank" class="hover:text-accent"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                            <a href="https://ai-document-insight.onrender.com/" target="_blank" class="hover:text-accent"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                          </div>
+                    </div>
+                    <h4 class="text-xl font-bold text-primary mb-2">AI Document Analyzer</h4>
+                    <p class="text-secondary flex-grow">An intelligent web app that uses NLP to scan, analyze, and extract key information from uploaded documents like PDFs and text files.</p>
+                    <div class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm mono text-secondary">
+                        <span>HTML</span><span>FastAPI (Python)</span><span>Sarvam AI</span><span>SQLite</span><span>TailwindCSS</span>
+                    </div>
+                </div>
+                <div class="card p-6 flex flex-col">
+                    <div class="flex justify-between items-center mb-4">
+                        <svg class="text-accent" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="1.5" y1="12" x2="5.5" y2="12"></line><line x1="18.5" y1="12" x2="22.5" y2="12"></line><line x1="12" y1="1.5" x2="12" y2="5.5"></line><line x1="12" y1="18.5" x2="12" y2="22.5"></line></svg>
+                        <div class="flex space-x-4 text-secondary text-xl">
+                            <a href="#" target="_blank" class="hover:text-accent"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold text-primary mb-2">Personal Portfolio Website</h4>
+                    <p class="text-secondary flex-grow">A responsive and interactive personal portfolio built from the ground up to showcase my projects, skills, and experience. Features a dark/light mode toggle.</p>
+                    <div class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm mono text-secondary">
+                        <span>HTML</span><span>Tailwind CSS</span><span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="experience" class="py-24">
+             <h3 class="flex items-center text-3xl font-bold text-primary mb-12">
+                <span class="text-accent mono text-2xl mr-3">04.</span> Leadership & Experience
+                <span class="flex-grow h-px border-main ml-6"></span>
+            </h3>
+            <div class="card p-8">
+                <h4 class="text-xl font-bold text-primary">Technical Head @ byteARQ, KITCOEK</h4>
+                <p class="mono text-secondary mb-6">Jan 2024 - May 2025</p>
+                <ul class="space-y-3 text-secondary">
+                    <li class="flex items-start">
+                        <span class="text-accent mr-3 mt-1">▸</span>
+                        <p>Spearheaded the core technical team of byteARQ 2024, managing 5+ events for over 700 participants.</p>
+                    </li>
+                     <li class="flex items-start">
+                        <span class="text-accent mr-3 mt-1">▸</span>
+                        <p>Conducted technical workshops and mentorship sessions for participants and student coordinators.</p>
+                    </li>
+                     <li class="flex items-start">
+                        <span class="text-accent mr-3 mt-1">▸</span>
+                        <p>Collaborated with sponsors and media teams to integrate branding and analytics into digital platforms.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education" class="py-24">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="flex items-center text-3xl font-bold text-primary mb-12">
+                        <span class="text-accent mono text-2xl mr-3">05.</span> Education
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="card p-6">
+                            <h4 class="font-bold text-primary">B.Tech in Computer Science and Business Systems</h4>
+                            <p class="text-secondary">KIT's College of Engineering Kolhapur</p>
+                            <p class="mono text-sm text-secondary mt-1">2022 - 2026 | CGPA: 8.6</p>
+                        </div>
+                         <div class="card p-6">
+                            <h4 class="font-bold text-primary">Higher Secondary Certificate (HSC)</h4>
+                            <p class="text-secondary">S M Lohia Jr College</p>
+                            <p class="mono text-sm text-secondary mt-1">2020 - 2022 | Secured 81.83%</p>
+                        </div>
+                        <div class="card p-6">
+                            <h4 class="font-bold text-primary">Secondary School Certificate (SSC)</h4>
+                            <p class="text-secondary">S M Lohia Highschool</p>
+                            <p class="mono text-sm text-secondary mt-1">2018 - 2020 | Secured 94.20%</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                     <h3 class="flex items-center text-3xl font-bold text-primary mb-12">
+                        <span class="text-accent mono text-2xl mr-3">06.</span> Certifications
+                    </h3>
+                     <div class="space-y-6">
+                        <div class="card p-6">
+                            <h4 class="font-bold text-primary">Complete MERN Stack</h4>
+                            <p class="text-secondary">Udemy</p>
+                        </div>
+                        <div class="card p-6">
+                            <h4 class="font-bold text-primary">Data Structures & Algorithms in Java</h4>
+                            <p class="text-secondary">Udemy</p>
+                        </div>
+                        <div class="card p-6">
+                            <h4 class="font-bold text-primary">Python Programming</h4>
+                            <p class="text-secondary">Nptel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24">
+            <div class="text-center">
+              <h3 class="mono text-accent">What's Next?</h3>
+              <h2 class="text-4xl md:text-5xl font-bold text-primary mt-4 mb-6">Get In Touch</h2>
+              <p class="max-w-xl mx-auto mb-10 text-secondary">
+                My inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+              </p>
+            </div>
+          
+            <div class="max-w-2xl mx-auto card p-8">
+              <!-- Contact Form -->
+              <form id="contactForm" action="https://formsubmit.co/prathameshsonar170@gmail.com" method="POST" class="space-y-8">
+                <!-- Hidden Inputs -->
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_subject" value="New message from your Portfolio Website!" />
+          
+                <!-- Name & Email -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                  <!-- Name -->
+                  <div>
+                    <label class="block mb-2 text-sm font-semibold text-primary">Your Name</label>
+                    <input 
+                      type="text" 
+                      name="name" 
+                      required 
+                      class="form-input"
+                    />
+                  </div>
+          
+                  <!-- Email -->
+                  <div>
+                    <label class="block mb-2 text-sm font-semibold text-primary">Your Email</label>
+                    <input 
+                      type="email" 
+                      name="email" 
+                      required 
+                      class="form-input"
+                    />
+                  </div>
+                </div>
+          
+                <!-- Message -->
+                <div>
+                  <label class="block mb-2 text-sm font-semibold text-primary">Your Message</label>
+                  <textarea 
+                    name="message" 
+                    rows="5" 
+                    required 
+                    class="form-input"
+                  ></textarea>
+                </div>
+          
+                <!-- Submit Button -->
+                <div class="text-center">
+                  <button 
+                    type="submit" 
+                    class="bg-accent text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition"
+                  >
+                    Send Message
+                  </button>
+                </div>
+              </form>
+          
+              <!-- Thank You Message -->
+              <div id="thankYouMessage" class="hidden text-center mt-8">
+                <h3 class="text-2xl font-bold text-primary mb-4">Thank You!</h3>
+                <p class="text-secondary">Your message has been sent successfully. I will get back to you shortly.</p>
+              </div>
+            </div>
+          </section>
+          
+
+    </main>
+    
+    <footer class="py-8 text-center">
+        <div class="flex justify-center items-center space-x-6 mb-4">
+             <a href="https://github.com/prathamesonar" target="_blank" class="text-xl text-secondary hover:text-accent transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/prathamesonar/" target="_blank" class="text-xl text-secondary hover:text-accent transition-colors">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+        </div>
+        <p class="mono text-sm text-secondary">Designed & Built by Prathamesh Sonar</p>
+    </footer>
+
+    <script>
+        const style = document.createElement('style');
+        style.textContent = `
+            .skill-tag {
+                @apply bg-accent/10 text-accent font-medium py-1.5 px-4 rounded-full text-sm;
+            }
+            .form-input {
+                @apply w-full bg-card border-main rounded-lg py-3 px-4 text-primary focus:outline-none focus:ring-2 focus:ring-accent transition-shadow;
+            }
+        `;
+        document.head.append(style);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+            const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                themeToggleLightIcon.classList.remove('hidden');
+                document.documentElement.classList.add('dark');
+            } else {
+                themeToggleDarkIcon.classList.remove('hidden');
+                document.documentElement.classList.remove('dark')
+            }
+
+            themeToggleBtn.addEventListener('click', function() {
+                themeToggleDarkIcon.classList.toggle('hidden');
+                themeToggleLightIcon.classList.toggle('hidden');
+                if (localStorage.getItem('color-theme')) {
+                    if (localStorage.getItem('color-theme') === 'light') {
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('color-theme', 'dark');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('color-theme', 'light');
+                    }
+                } else {
+                    if (document.documentElement.classList.contains('dark')) {
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('color-theme', 'light');
+                    } else {
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('color-theme', 'dark');
+                    }
+                }
+            });
+            
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    header.classList.add('shadow-md');
+                } else {
+                    header.classList.remove('shadow-md');
+                }
+            });
+
+            const contactForm = document.getElementById('contactForm');
+            const thankYouMessage = document.getElementById('thankYouMessage');
+            
+            if(contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(contactForm);
+                    
+                    fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    }).then(response => {
+                        if (response.ok) {
+                            contactForm.classList.add('hidden');
+                            thankYouMessage.classList.remove('hidden');
+                        } else {
+                            response.json().then(data => {
+                                if (Object.hasOwn(data, 'errors')) {
+                                    alert(data["errors"].map(error => error["message"]).join(", "));
+                                } else {
+                                    alert('Oops! There was a problem submitting your form.');
+                                }
+                            })
+                        }
+                    }).catch(error => {
+                        alert('Oops! There was a problem submitting your form.');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
