@@ -27,6 +27,8 @@ This project showcases my **skills, projects, and experiences** as a developer i
 ##  Tech Stack
 - **Frontend:** HTML, TailwindCSS, JavaScript  
 - **Deployment:** Render  
+---
 
-
-
+##  Contact 
+- prathameshsonar170@gmail.com  
+- [LinkedIn](https://www.linkedin.com/in/prathamesonar)  
