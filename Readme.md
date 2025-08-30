@@ -5,6 +5,14 @@ This project showcases my **skills, projects, and experiences** as a developer i
 
 ---
 
+### **Live Demo**: [https://prathameshsonar-portfolio.onrender.com/](https://prathameshsonar-portfolio.onrender.com/)
+
+---
+
+## 📷 Preview
+![Portfolio Preview](https://github.com/user-attachments/assets/a33ae17f-5a58-4ea9-9b15-32d7278b0b77)
+
+---
 ##  Features
 -  Modern UI with **TailwindCSS**
 -  Fully **responsive** and mobile-friendly
@@ -16,17 +24,9 @@ This project showcases my **skills, projects, and experiences** as a developer i
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 - **Frontend:** HTML, TailwindCSS, JavaScript  
-- **Deployment:** GitHub Pages / Render  
+- **Deployment:** Render  
 
----
-### **Live Demo**: [https://prathameshsonar-portfolio.onrender.com/](https://prathameshsonar-portfolio.onrender.com/)
 
----
-
-## 📷 Preview
-![Portfolio Preview](https://github.com/user-attachments/assets/a33ae17f-5a58-4ea9-9b15-32d7278b0b77)
-
----
 
