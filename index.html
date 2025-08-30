@@ -413,7 +413,10 @@
         </div>
         <p class="mono text-sm text-secondary">Designed & Built by Prathamesh Sonar</p>
     </footer>
-
+    <button id="backToTop"
+      class="hidden fixed bottom-6 right-6 bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg transition-all duration-300">
+     ↑
+    </button>
     <script>
         const style = document.createElement('style');
         style.textContent = `
@@ -476,7 +479,19 @@
                     header.classList.remove('shadow-md');
                 }
             });
+            const backToTopBtn = document.getElementById("backToTop");
 
+              window.addEventListener("scroll", () => {
+                if (window.scrollY > 300) {
+                  backToTopBtn.classList.remove("hidden");
+                } else {
+                  backToTopBtn.classList.add("hidden");
+                }
+              });
+            
+              backToTopBtn.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              });
             const contactForm = document.getElementById('contactForm');
             const thankYouMessage = document.getElementById('thankYouMessage');
             
