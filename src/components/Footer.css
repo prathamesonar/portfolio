@@ -1,0 +1,59 @@
+.footer {
+    padding: 40px 28px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.footer-socials a {
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+/* GitHub — always dark branded */
+.footer-socials a:first-child {
+    color: #24292f;
+    background: rgba(36, 41, 47, 0.07);
+    border: 1px solid rgba(36, 41, 47, 0.18);
+}
+
+[data-theme="dark"] .footer-socials a:first-child {
+    color: #e6edf3;
+    background: rgba(230, 237, 243, 0.07);
+    border: 1px solid rgba(230, 237, 243, 0.15);
+}
+
+.footer-socials a:first-child:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* LinkedIn — always brand blue */
+.footer-socials a.linkedin-icon {
+    color: #0a66c2;
+    background: rgba(10, 102, 194, 0.07);
+    border: 1px solid rgba(10, 102, 194, 0.22);
+}
+
+.footer-socials a.linkedin-icon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(10, 102, 194, 0.2);
+}
+
+.footer-credit {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+}

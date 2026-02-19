@@ -1,0 +1,80 @@
+.experience-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+.experience-card:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-glow);
+}
+
+.experience-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    background: var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.experience-content {
+    flex: 1;
+}
+
+.experience-role {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+
+.experience-org {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.experience-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 6px 0 18px;
+}
+
+.experience-points {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.experience-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+
+.experience-point .arrow {
+    color: var(--accent);
+    margin-top: 3px;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+    .experience-card {
+        flex-direction: column;
+        gap: 16px;
+    }
+}

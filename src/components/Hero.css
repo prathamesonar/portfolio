@@ -1,0 +1,192 @@
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 70px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-hero);
+    z-index: -2;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+    animation: float 8s ease-in-out infinite;
+}
+
+.hero-greeting {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease 0.1s forwards;
+    letter-spacing: 0.05em;
+}
+
+.hero-name {
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease 0.2s forwards;
+}
+
+.hero-tagline {
+    font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-top: 12px;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease 0.35s forwards;
+}
+
+.hero-tagline .gradient-text {
+    background: var(--gradient-accent);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientMove 4s ease infinite;
+}
+
+.hero-desc {
+    max-width: 540px;
+    margin-top: 24px;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease 0.45s forwards;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-top: 40px;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease 0.55s forwards;
+}
+
+.hero-btn {
+    padding: 14px 32px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.92rem;
+    transition: all 0.3s ease;
+    letter-spacing: 0.01em;
+}
+
+.hero-btn-primary {
+    background: var(--gradient-accent);
+    background-size: 200% auto;
+    color: #fff;
+    box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+.hero-btn-primary:hover {
+    background-size: 300% auto;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px var(--accent-glow);
+}
+
+/* Resume — always accent colored */
+.hero-btn-outline {
+    border: 1.5px solid var(--accent);
+    color: var(--accent);
+    background: var(--accent-light);
+}
+
+.hero-btn-outline:hover {
+    background: var(--gradient-accent);
+    background-size: 200% auto;
+    color: #fff;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px var(--accent-glow);
+}
+
+.hero-socials {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 8px;
+}
+
+.hero-socials a {
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+/* GitHub — always dark branded */
+.hero-socials a:first-child {
+    color: #24292f;
+    background: rgba(36, 41, 47, 0.07);
+    border: 1px solid rgba(36, 41, 47, 0.18);
+}
+
+[data-theme="dark"] .hero-socials a:first-child {
+    color: #e6edf3;
+    background: rgba(230, 237, 243, 0.07);
+    border: 1px solid rgba(230, 237, 243, 0.15);
+}
+
+.hero-socials a:first-child:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* LinkedIn — always brand blue */
+.hero-socials a.linkedin-icon {
+    color: #0a66c2;
+    background: rgba(10, 102, 194, 0.07);
+    border: 1px solid rgba(10, 102, 194, 0.22);
+}
+
+.hero-socials a.linkedin-icon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(10, 102, 194, 0.2);
+}
+
+@media (max-width: 480px) {
+    .hero-actions {
+        gap: 10px;
+    }
+
+    .hero-btn {
+        padding: 12px 24px;
+        font-size: 0.85rem;
+    }
+
+    .hero-socials {
+        margin-left: 0;
+        margin-top: 4px;
+    }
+}
