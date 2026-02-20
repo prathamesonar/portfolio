@@ -94,7 +94,14 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  font-size: 16px;
+  /* Cache buster - v2.0 redesign */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {

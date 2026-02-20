@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+// Cache bust: Portfolio redesign v2.0 - 2026
 import './styles/index.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';

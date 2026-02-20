@@ -20,7 +20,7 @@ export default function Hero() {
     return (
         <section id="home" className="hero container">
             <p className="hero-greeting">Hi, my name is</p>
-            <h1 className="hero-name">Prathamesh Sonar.</h1>
+            <h1 className="hero-name" style={{ color: '#7C3AED' }}>Prathamesh Sonar.</h1>
             <h2 className="hero-tagline">
                 I build things for <span className="gradient-text">the web.</span>
             </h2>
