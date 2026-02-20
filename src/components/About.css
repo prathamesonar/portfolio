@@ -26,17 +26,19 @@
 
 .about-image-bg {
     position: absolute;
-    inset: -4px;
+    inset: -8px;
     background: var(--gradient-accent);
     border-radius: var(--radius);
-    transform: rotate(2deg);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    opacity: 0.7;
+    transform: rotate(3deg) scale(0.95);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0.8;
+    z-index: -1;
 }
 
 .about-image-wrapper:hover .about-image-bg {
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(1);
     opacity: 1;
+    box-shadow: 0 0 40px var(--accent-glow);
 }
 
 .about-image {

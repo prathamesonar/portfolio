@@ -23,15 +23,15 @@
 }
 
 .education-icon {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(99, 102, 241, 0.12));
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.12), rgba(6, 182, 212, 0.12));
     color: var(--accent);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    border: 1px solid var(--border-hover);
 }
 
 .cert-icon {
-    background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(249, 115, 22, 0.12));
-    color: #f59e0b;
-    border: 1px solid rgba(245, 158, 11, 0.2);
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.12), rgba(124, 58, 237, 0.12));
+    color: var(--accent-tertiary);
+    border: 1px solid rgba(236, 72, 153, 0.2);
 }
 
 .col-number {
@@ -64,14 +64,14 @@
     border-radius: var(--radius);
     overflow: hidden;
     display: flex;
-    backdrop-filter: blur(8px);
-    transition: all 0.3s ease;
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .edu-card:hover {
     border-color: var(--border-hover);
-    box-shadow: var(--shadow-md), var(--shadow-glow);
-    transform: translateX(4px);
+    box-shadow: 0 0 40px var(--accent-glow);
+    transform: translateX(4px) translateY(-2px);
 }
 
 .edu-card-accent {
@@ -148,14 +148,14 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    backdrop-filter: blur(8px);
-    transition: all 0.3s ease;
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cert-card:hover {
     border-color: var(--border-hover);
-    box-shadow: var(--shadow-md), var(--shadow-glow);
-    transform: translateX(4px);
+    box-shadow: 0 0 40px rgba(236, 72, 153, 0.15);
+    transform: translateX(4px) translateY(-2px);
 }
 
 .cert-badge {

@@ -19,46 +19,54 @@
 .hero::after {
     content: '';
     position: absolute;
-    top: 10%;
-    right: -5%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    top: 5%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 65%);
     border-radius: 50%;
     z-index: -1;
-    animation: float 8s ease-in-out infinite;
+    animation: float 10s ease-in-out infinite;
+}
+
+/* Decorative blob on left */
+.hero::before {
+    box-shadow: inset -400px -200px 300px rgba(6, 182, 212, 0.05);
 }
 
 .hero-greeting {
     font-family: 'JetBrains Mono', monospace;
     color: var(--accent);
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 20px;
     opacity: 0;
     animation: fadeInUp 0.6s ease 0.1s forwards;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .hero-name {
-    font-size: clamp(2.8rem, 7vw, 5rem);
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
     font-weight: 800;
     color: var(--text-primary);
-    line-height: 1.05;
-    letter-spacing: -0.03em;
+    line-height: 1;
+    letter-spacing: -0.04em;
     opacity: 0;
     animation: fadeInUp 0.6s ease 0.2s forwards;
+    text-balance: balance;
 }
 
 .hero-tagline {
-    font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+    font-size: clamp(1.3rem, 3.5vw, 2.2rem);
     font-weight: 600;
     color: var(--text-secondary);
-    margin-top: 12px;
-    line-height: 1.25;
-    letter-spacing: -0.02em;
+    margin-top: 16px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
     opacity: 0;
     animation: fadeInUp 0.6s ease 0.35s forwards;
+    text-balance: balance;
 }
 
 .hero-tagline .gradient-text {
@@ -91,41 +99,58 @@
 }
 
 .hero-btn {
-    padding: 14px 32px;
+    padding: 14px 36px;
     border-radius: var(--radius-sm);
     font-weight: 600;
     font-size: 0.92rem;
-    transition: all 0.3s ease;
-    letter-spacing: 0.01em;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
 }
 
 .hero-btn-primary {
     background: var(--gradient-accent);
     background-size: 200% auto;
     color: #fff;
-    box-shadow: 0 4px 20px var(--accent-glow);
+    box-shadow: 0 4px 24px rgba(124, 58, 237, 0.25);
+    border: none;
 }
 
 .hero-btn-primary:hover {
     background-size: 300% auto;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px var(--accent-glow);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 48px rgba(124, 58, 237, 0.35);
 }
 
 /* Resume — always accent colored */
 .hero-btn-outline {
-    border: 1.5px solid var(--accent);
+    border: 2px solid var(--accent);
     color: var(--accent);
-    background: var(--accent-light);
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-btn-outline::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-accent);
+    z-index: -1;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scaleY(0);
+    transform-origin: bottom;
 }
 
 .hero-btn-outline:hover {
-    background: var(--gradient-accent);
-    background-size: 200% auto;
     color: #fff;
     border-color: transparent;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px var(--accent-glow);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 48px rgba(124, 58, 237, 0.35);
+}
+
+.hero-btn-outline:hover::before {
+    transform: scaleY(1);
 }
 
 .hero-socials {

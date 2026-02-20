@@ -54,9 +54,22 @@
     color: var(--text-primary);
     padding: 8px 16px;
     border-radius: var(--radius-full);
-    transition: all 0.25s ease;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.02em;
+}
+
+.navbar-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 16px;
+    right: 16px;
+    height: 2px;
+    background: var(--gradient-accent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .navbar-links a:hover {
@@ -64,10 +77,18 @@
     background: var(--accent-light);
 }
 
+.navbar-links a:hover::after {
+    transform: scaleX(1);
+}
+
 .navbar-links a.active {
     color: var(--accent);
     background: var(--accent-light);
     font-weight: 700;
+}
+
+.navbar-links a.active::after {
+    transform: scaleX(1);
 }
 
 /* Actions area */
@@ -79,20 +100,21 @@
 
 .resume-btn {
     font-size: 0.82rem;
-    font-weight: 600;
-    padding: 8px 20px;
+    font-weight: 700;
+    padding: 8px 24px;
     border-radius: var(--radius-full);
     background: var(--gradient-accent);
     background-size: 200% auto;
     color: #fff;
-    transition: all 0.3s ease;
-    letter-spacing: 0.02em;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
 }
 
 .resume-btn:hover {
     background-size: 300% auto;
-    box-shadow: 0 4px 20px var(--accent-glow);
-    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(124, 58, 237, 0.35);
+    transform: translateY(-2px);
 }
 
 .theme-toggle {

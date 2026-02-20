@@ -1,7 +1,8 @@
 .footer {
-    padding: 40px 28px;
+    padding: 60px 28px;
     text-align: center;
     border-top: 1px solid var(--border);
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
 }
 
 .footer-socials {
@@ -18,7 +19,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.25s ease;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* GitHub — always dark branded */
@@ -35,8 +36,8 @@
 }
 
 .footer-socials a:first-child:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* LinkedIn — always brand blue */
@@ -47,8 +48,8 @@
 }
 
 .footer-socials a.linkedin-icon:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 16px rgba(10, 102, 194, 0.2);
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 6px 20px rgba(10, 102, 194, 0.25);
 }
 
 .footer-credit {

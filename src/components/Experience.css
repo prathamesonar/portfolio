@@ -6,13 +6,33 @@
     display: flex;
     gap: 24px;
     align-items: flex-start;
-    backdrop-filter: blur(8px);
-    transition: all 0.3s ease;
+    backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--gradient-accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .experience-card:hover {
     border-color: var(--border-hover);
-    box-shadow: var(--shadow-glow);
+    box-shadow: 0 0 40px var(--accent-glow);
+    transform: translateX(4px);
+}
+
+.experience-card:hover::before {
+    transform: scaleY(1);
 }
 
 .experience-badge {
@@ -25,10 +45,21 @@
     justify-content: center;
     color: var(--accent);
     flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.experience-card:hover .experience-badge {
+    background: var(--gradient-accent);
+    color: #fff;
+    transform: scale(1.1);
 }
 
 .experience-content {
     flex: 1;
+    position: relative;
+    z-index: 1;
 }
 
 .experience-role {
