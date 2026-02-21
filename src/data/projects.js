@@ -79,16 +79,16 @@ const projects = [
     liveUrl: null,
     image: "/assets/img/twitch.png",
   },
-  // {
-  //   id: 10,
-  //   title: "ShiftBoard - HR Management",
-  //   description:
-  //     "A full-stack MERN application for managing employee shifts with Role-Based Access Control (RBAC), JWT authentication, and automated shift validation logic.",
-  //   techStack: ["React", "Node.js", "MongoDB", "Tailwind CSS", "JWT"],
-  //   githubUrl: "https://github.com/prathamesonar/shiftboard-app",
-  //   liveUrl: "https://shiftboard.vercel.app",
-  //   image: "/assets/img/shiftboard.png",
-  // },
+  {
+    id: 10,
+    title: "ShiftBoard - HR Management",
+    description:
+      "A full-stack MERN application for managing employee shifts with Role-Based Access Control (RBAC), JWT authentication, and automated shift validation logic.",
+    techStack: ["React", "Node.js", "MongoDB", "Tailwind CSS", "JWT"],
+    githubUrl: "https://github.com/prathamesonar/shiftboard-app",
+    liveUrl: "https://shiftboard.vercel.app",
+    image: "/assets/img/shiftboard.png",
+  },
   {
     id: 11,
     title: "AI Chat Assistant",
