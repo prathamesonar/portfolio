@@ -51,6 +51,18 @@
     box-shadow: 0 4px 16px rgba(10, 102, 194, 0.2);
 }
 
+/* Email — brand red */
+.footer-socials a.email-icon {
+    color: #ea4335;
+    background: rgba(234, 67, 53, 0.07);
+    border: 1px solid rgba(234, 67, 53, 0.22);
+}
+
+.footer-socials a.email-icon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(234, 67, 53, 0.2);
+}
+
 .footer-credit {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;

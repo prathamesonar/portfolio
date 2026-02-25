@@ -15,19 +15,19 @@ export const education = [
         degree: "B.Tech in Computer Science and Business Systems",
         institution: "KIT's College of Engineering Kolhapur",
         period: "2022 - 2026",
-        score: "CGPA: 8.7",
+        grade: "CGPA: 8.7",
     },
     {
         degree: "Higher Secondary Certificate (HSC)",
         institution: "S M Lohia Jr College",
         period: "2020 - 2022",
-        score: "Secured 81.83%",
+        grade: "Secured 81.83%",
     },
     {
         degree: "Secondary School Certificate (SSC)",
         institution: "S M Lohia Highschool",
         period: "2018 - 2020",
-        score: "Secured 94.20%",
+        grade: "Secured 94.20%",
     },
 ];
 
