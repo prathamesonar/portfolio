@@ -20,7 +20,7 @@ This project showcases my **skills, projects, and experiences** as a developer i
 ---
 
 ##  Tech Stack
-- **Frontend:** HTML, TailwindCSS, JavaScript  
+- **Frontend:** React, TailwindCSS, JavaScript  
 - **Deployment:** Render  
 ---
 
